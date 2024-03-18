@@ -1,0 +1,797 @@
+{
+	"info": {
+		"_postman_id": "5d2d4da6-430a-4e2d-8015-8514a7fa9e30",
+		"name": "Project#1 - SOAP API Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TC#1 - PositiveTC - SOAP Req. NumberToWords",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30835fc3-0158-4321-aabd-bdbf860756d2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "29946b00-612a-4b62-9363-fc128fdc4e7e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>7680</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#2 - NegativeTC - No Headers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bb7ec03d-a39d-4dcc-b3fa-31d7a7fa0755",
+						"exec": [
+							"pm.test(\"Status code is 415 for invalid req\", function () {",
+							"    pm.response.to.have.status(415);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "f8008654-7614-4abe-a253-a319972f06e7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>7680</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#3 - NegativeTC - No Body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e9b7db0f-ed68-49af-bb7b-91fe1476c565",
+						"exec": [
+							"pm.test(\"Status code is 500 for the no body\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "63fba15f-8c09-4154-853e-ab8ed1c16ed9",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#4 - Negative Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "30835fc3-0158-4321-aabd-bdbf860756d2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "11f33457-b735-4265-8527-0cbae770702a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>-1</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#5 String instead 0f Number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dfbe8f8c-7ae7-4539-8ae8-6749802a8c40",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "8e68b253-1321-48f7-9674-8ce4aee1d9b6",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>pramod</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#6 String and number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d495712f-a31a-43a3-8e50-e7bf99db37f8",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "1d5959ff-9718-4c32-bdd9-1e5ef05bf716",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>pramod123</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#7 Special Characters",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d69756fa-6553-4dfb-b9e5-6379ac2b1ec4",
+						"exec": [
+							"pm.test(\"Status code is 500 for special characters\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "a87ab541-5052-4b23-8495-389665114bcb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>@#$%^&</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#8 Blank request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "101a2a5a-e967-49a0-b818-e2bec4508bc2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "644fe26e-ed5f-422d-8a63-24ad31727884",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum></ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#9 Large number in the request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eaf9b25c-be63-4d6e-8baa-24bef7746fa9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "5a1e6e9a-6c2e-40a4-a07a-8696f96a5d6a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>98765432345678987654345678</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#10 Decimal number in the request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dd7dfaee-106b-486a-b0f0-bf4c7a5d0507",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "b8292eec-b87a-4652-bbc8-d646acdb36fb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>12.34</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#11 Arabic language",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1eb303b-efbf-486d-8fc0-8877641d026b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "648f3b1c-2391-44d3-96e0-3d1f8d3a6862",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>وتتحمّل والكوري ف</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC#12 Chinese Language",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1eb303b-efbf-486d-8fc0-8877641d026b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "de9bb154-2fd8-41b5-985f-6cc82e5817ae",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>𡨸漢</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.dataaccess.com/webservicesserver/NumberConversion.wso",
+					"protocol": "https",
+					"host": [
+						"www",
+						"dataaccess",
+						"com"
+					],
+					"path": [
+						"webservicesserver",
+						"NumberConversion.wso"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "b",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
