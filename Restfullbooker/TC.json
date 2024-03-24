@@ -651,7 +651,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstname\" : \"James\",\n    \"lastname\" : \"Brown\"\n}"
+					"raw": "{\n    \"firstname\" : \"James\",\n    \"lastname\" : \"Bhor\"\n}"
 				},
 				"url": "https://restful-booker.herokuapp.com/booking/1"
 			},
@@ -672,7 +672,7 @@
 					},
 					{
 						"key": "Cookie",
-						"value": "token=abc123"
+						"value": "token=dad774f5ce941be"
 					},
 					{
 						"key": "Authorization",
