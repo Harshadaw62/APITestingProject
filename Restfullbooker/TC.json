@@ -558,6 +558,13 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "password123",
+						"username": "admin"
+					}
+				},
 				"method": "PUT",
 				"header": [
 					{
@@ -580,9 +587,9 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstname\" : \"Harsh\",\n    \"lastname\" : \"Bhor\",\n    \"totalprice\" : 112,\n    \"depositpaid\" : true,\n    \"bookingdates\" : {\n        \"checkin\" : \"2024-01-01\",\n        \"checkout\" : \"2024-02-01\"\n    },\n    \"additionalneeds\" : \"Breakfast\"\n}"
+					"raw": "{\n    \"firstname\" : \"Jim\",\n    \"lastname\" : \"Bhor\",\n    \"totalprice\" : 112,\n    \"depositpaid\" : true,\n    \"bookingdates\" : {\n        \"checkin\" : \"2024-01-01\",\n        \"checkout\" : \"2024-02-01\"\n    },\n    \"additionalneeds\" : \"Breakfast\"\n}"
 				},
-				"url": "https://restful-booker.herokuapp.com/booking/1"
+				"url": "https://restful-booker.herokuapp.com/booking/5040"
 			},
 			"response": []
 		},
